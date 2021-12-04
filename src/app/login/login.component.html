@@ -1,0 +1,23 @@
+
+<div class="container paddingLogin" >
+  <form #loginForm="ngForm">
+    <small class="text-danger">{{message}}</small>
+    <div class="form-group">
+      <label for="inputUsername">Username</label>
+      <input type="username" class="form-control" id="inputUsername" aria-describedby="usernameHelp"
+             placeholder="Enter username" name="username" [(ngModel)]="user.username"
+             required #username="ngModel" [class.is-invalid]="username.invalid && username.touched">
+      <small id="usernameHelp" class="form-text text-muted">Please input your username.</small>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password"
+             [(ngModel)]="user.password" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+    </div>
+    <br>
+    <div class="form-group">
+      <button type="login" class="btn btn-primary" [disabled]="username.invalid || password.invalid" (click)="loginUser()">Login</button>
+      <button type="register" class="btn btn-secondary float-end" (click)="goToRegistration()">Register</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,32 @@
+<div class="container paddingRegistration">
+  <form #postForm="ngForm">
+    <div class="form-group">
+      <label for="postID">Post ID</label>
+      <input type="postID" class="form-control" id="postID"
+             placeholder="Enter image url" name="postID" [(ngModel)]="post.id">
+      <small id="postIDHelper" class="form-text text-muted">Please input a post ID.</small>
+    </div>
+    <div class="form-group">
+      <label for="inputImageUrl">Image Url</label>
+      <input type="imageUrl" class="form-control" id="inputImageUrl"
+             placeholder="Enter image url" name="imageUrl" [(ngModel)]="post.imageUrl">
+      <small id="imageUrlHelper" class="form-text text-muted">Please input a image url.</small>
+    </div>
+    <div class="form-group">
+      <label for="inputPostMessage">Message</label>
+      <input type="postMessage" class="form-control" id="inputPostMessage"
+             placeholder="Enter message" name="message" [(ngModel)]="post.message">
+      <small id="messageHelper" class="form-text text-muted">Please input a message.</small>
+    </div>
+    <br>
+    <div class="form-group">
+      <button type="register" class="btn btn-primary" (click)="makeNewPost(); getPosts()">Post!</button>
+    </div>
+  </form>
+</div>
+<div class="container paddingRegistration" *ngFor="let post of postList">
+  <div>{{post.message}}</div>
+  <div>{{post.imageUrl}}</div>
+  <div>{{post.LocalDateTime}}</div>
+  <br>
+</div>
