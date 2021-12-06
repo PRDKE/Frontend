@@ -32,7 +32,7 @@ export class PostsComponent implements OnInit {
     this.service.createNewPost(this.newPost).subscribe(
       data => {
         console.log("response recieved");
-        this.router.navigate(['loginsuccess']);
+        this.router.navigate(['mainpage']);
       },
       error => {
         console.log("exception occured");
@@ -54,6 +54,6 @@ export class PostsComponent implements OnInit {
   }
 
   backToMainPage() {
-    this.router.navigate(['loginsuccess']);
+    this.router.navigate(['mainpage']);
   }
 }

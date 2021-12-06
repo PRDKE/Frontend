@@ -7,16 +7,16 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { LoginSuccessComponent } from './login-success/login-success.component';
 import { PostsComponent } from './posts/posts.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    LoginSuccessComponent,
-    PostsComponent
+    PostsComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
