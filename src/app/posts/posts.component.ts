@@ -15,11 +15,15 @@ export class PostsComponent implements OnInit {
   newPost = new NewPost();
   post = new Post();
   postList: Array<Post> = [];
+  emojis: Array<any> = ['Grinning Face', 'Sad Face', 'Bored Face'];
 
   constructor(private service: PostsService, private router: Router) {}
 
   ngOnInit(): void {
     this.getPosts();
+    if (PostsComponent.username === undefined) {
+      this.router.navigate(['login']);
+    }
   }
 
   makeNewPost() {
@@ -47,5 +51,9 @@ export class PostsComponent implements OnInit {
         console.log("exception occured");
       }
     );
+  }
+
+  backToMainPage() {
+    this.router.navigate(['loginsuccess']);
   }
 }

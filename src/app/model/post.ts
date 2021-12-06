@@ -4,5 +4,5 @@ export class Post {
   id!: string;
   imageUrl!: string;
   message!: string;
-  LocalDateTime!: LocalNgModuleData;
+  LocalDateTime!: Date;
 }
