@@ -20,4 +20,12 @@ export class MainPageComponent implements OnInit {
   goToPosts() {
     this.router.navigate(['/posts'])
   }
+
+  goToFollowme(){
+    this.router.navigate(['/followme'])
+  }
+
+  goToFollowfriends(){
+    this.router.navigate(['/followfriends'])
+  }
 }

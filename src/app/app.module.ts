@@ -9,6 +9,13 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { PostsComponent } from './posts/posts.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { LoginHeaderComponent } from './login-header/login-header.component';
+import { MainPageHeaderComponent } from './main-page-header/main-page-header.component';
+import { PageFollowmeComponent } from './page-followme/page-followme.component';
+import { PageFollowfriendsComponent } from './page-followfriends/page-followfriends.component';
+import { HeaderLightblueComponent } from './header-lightblue/header-lightblue.component';
+import { UserFollowboxComponent } from './user-followbox/user-followbox.component';
+import { PostingComponent } from './posting/posting.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +23,14 @@ import { MainPageComponent } from './main-page/main-page.component';
     LoginComponent,
     RegistrationComponent,
     PostsComponent,
-    MainPageComponent
+    MainPageComponent,
+    LoginHeaderComponent,
+    MainPageHeaderComponent,
+    PageFollowmeComponent,
+    PageFollowfriendsComponent,
+    HeaderLightblueComponent,
+    UserFollowboxComponent,
+    PostingComponent
   ],
   imports: [
     BrowserModule,

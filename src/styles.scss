@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "Rubik";
+  src: url(assets/fonts/rubik.ttf) format("truetype");
+}
+
+html {
+  padding-right: 200px;
+  padding-left:200px;
+  background-color: #161616;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+body{
+  min-width: 600px;
+
+}

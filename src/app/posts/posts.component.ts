@@ -12,6 +12,7 @@ import {NewPost} from "../model/new-post";
 export class PostsComponent implements OnInit {
 
   static username: string;
+  postUsername!: string;
   newPost = new NewPost();
   post = new Post();
   postList: Array<Post> = [];
@@ -24,6 +25,7 @@ export class PostsComponent implements OnInit {
     if (PostsComponent.username === undefined) {
       this.router.navigate(['login']);
     }
+    this.postUsername = PostsComponent.username;
   }
 
   makeNewPost() {
@@ -32,7 +34,6 @@ export class PostsComponent implements OnInit {
     this.service.createNewPost(this.newPost).subscribe(
       data => {
         console.log("response recieved");
-        this.router.navigate(['mainpage']);
       },
       error => {
         console.log("exception occured");

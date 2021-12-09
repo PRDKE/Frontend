@@ -1,5 +1,8 @@
+<app-header-lightblue></app-header-lightblue>
 
-<div class="paddingPost">
+<br>
+
+<div class="container paddingPost">
   <button type="register" class="btn btn-primary" (click)="backToMainPage()">Main Page</button>
   <br>
   <form #postForm="ngForm">
@@ -26,10 +29,12 @@
     </div>
   </form>
   <br>
-  <small>Old Posts</small>
+
+
   <div class="container paddingRegistration" *ngFor="let post of postList">
-    <div><img src="{{post?.imageUrl}}" width="50px" height="50px"> {{post.message}} {{post.LocalDateTime|date}}</div>
-    <br>
+    <app-posting [img]="post.imageUrl" [username]="postUsername"  [message]="post.message" [postId]="post.id"></app-posting>
   </div>
+
 </div>
+
 
