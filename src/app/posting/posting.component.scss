@@ -1,0 +1,78 @@
+div.posting {
+  position: inline-block;
+  float: left;
+  width:100%;
+  min-height: 56px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: #fcfcfc;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+
+}
+
+
+div.posting-userimg {
+  width: 8%;
+  margin: 1%;
+  position: relative;
+  float: left;
+  padding-left: 2%;
+}
+
+
+div.posting-content {
+  width: 58%;
+  margin: 1%;
+  position: relative;
+  float: left;
+  font-size: 16px;
+}
+p.username{
+  color: #4bc7fb;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  min-height: 0px;
+  margin-bottom: 0px;
+}
+p.content{
+  min-height: 0px;
+  margin-bottom: 0px;
+}
+p.date{
+  color:#777;
+  font-size: 11px;
+  text-decoration: none;
+  text-align: right;
+  margin-bottom: 0px;
+}
+
+div.posting-emoji {
+  width: 8%;
+  margin: 1%;
+  position: relative;
+  float: left;
+  padding-left: 2%;
+}
+
+
+div.posting-empty {
+  width: 4%;
+  margin: 1%;
+  padding-left: 2%;
+}
+
+
+div.posting-delete {
+  width: 4%;
+  margin: 1%;
+  position: relative;
+  float: left;
+}
+
+
+a.follow-btn {
+  width: 50px;
+}
