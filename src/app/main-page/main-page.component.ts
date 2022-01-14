@@ -14,7 +14,6 @@ import {UserPageComponent} from "../user-page/user-page.component";
 })
 export class MainPageComponent implements OnInit {
 
-  followRelationData = Array<FollowRelationData>();
   postList = new Map<string, Post>();
 
   constructor(private router: Router, private followService: FollowService, private postService: PostsService) {
@@ -23,19 +22,6 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     this.getFirstPostOfFollows();
   }
-
-  // getAllLoggedInUserFollows() {
-  //   // let followRelationData = Array<FollowRelationData>();
-  //   this.followService.getAllUserFollows().subscribe(
-  //     data => {
-  //       this.followRelationData = data;
-  //     },
-  //     error => {
-  //       console.log('no followRelationData found');
-  //     }
-  //   );
-  //   console.log(this.followRelationData);
-  // }
 
   getFirstPostOfFollows() {
     let followRelationData = Array<FollowRelationData>();

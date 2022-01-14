@@ -4,7 +4,6 @@
 <div class="follow">
   <small>{{errorMessage}}</small>
   <div *ngFor="let followRelation of followRelationData" >
-<!--    <app-user-followbox [username]="followRelation.username"></app-user-followbox>-->
     <a (click)="goToUserPage(followRelation.username)">
     </a>
     <div class="container " >
