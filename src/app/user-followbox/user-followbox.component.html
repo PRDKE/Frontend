@@ -7,14 +7,14 @@
             <img src="assets/img/user_icon.png" height="32px">
         </div>
         <div class="username">
-           Vorname Nachname
+           {{username}}
         </div>
         <div class="follow">
-          <a href="#!" class="btn btn-primary follow-btn">Folgen</a>
+          <button class="btn btn-primary follow-btn" *ngIf="currentHelper" (click)="deleteFollowRelation()">Unfollow</button>
+          <button class="btn btn-primary follow-btn" *ngIf="!currentHelper" (click)="goToUserPage(username)">Go to User</button>
         </div>
       </div>
     </div>
-
 </div>
 
 

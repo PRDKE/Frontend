@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FollowRelationData} from "../model/follow-relation-data";
+import {FollowService} from "../service/follow.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-page-followme',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageFollowmeComponent implements OnInit {
 
-  constructor() { }
+  followRelationData = Array<FollowRelationData>();
+
+  constructor(private followService: FollowService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getAllFollowUser()
   }
 
+  getAllFollowUser() {
+    this.followService.getAllFollowUser().subscribe(
+      data => {
+        this.followRelationData = data;
+      },
+      error => {
+        console.log('no followRelationData found');
+      }
+    );
+  }
+
+  backToMainPage() {
+    this.router.navigate(['mainpage']);
+  }
 }

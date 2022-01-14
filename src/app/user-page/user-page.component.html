@@ -1,0 +1,45 @@
+<app-header-lightblue></app-header-lightblue>
+<!--<div class="container paddingPost">-->
+<!--  <button (click)="backToMainPage()" class="btn btn-primary btn-25">Main Page</button>-->
+<!--  <div>-->
+<!--    <small>User Information:</small>-->
+<!--    <div class="userpage userInformation">Username: {{user.username}}</div>-->
+<!--    <div class="userpage userInformation">First Name: {{user.firstName}}</div>-->
+<!--    <div class="userpage userInformation">Last Name: {{user.lastName}}</div>-->
+<!--    <div class="userpage userInformation">E-Mail: {{user.email}}</div>-->
+<!--  </div>-->
+<!--  <div class="post">-->
+<!--    <div *ngFor="let post of posts">-->
+<!--      <small>{{errorMessagePost}}</small>-->
+<!--      <app-posting [img]="post.imageUrl" [message]="post.message" [postId]="post.id" [datePosting]="post.localDateTime"></app-posting>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <button *ngIf="loggedInUserFollows" (click)="deleteFollowRelation()" class="btn btn-primary btn-50">Unfollow</button>-->
+<!--    <button *ngIf="!loggedInUserFollows" (click)="createFollowRelation()" class="btn btn-primary btn-50">Follow</button>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="container paddingPost">
+  <button type="Main-Page" class="btn btn-primary" (click)="backToMainPage()">Main Page</button>
+  <br>
+  <form #userPage="ngForm">
+    <div class="form-group">
+      <div class="userpage userInformation">Username: {{user.username}}</div>
+      <div class="userpage userInformation">First Name: {{user.firstName}}</div>
+      <div class="userpage userInformation">Last Name: {{user.lastName}}</div>
+      <div class="userpage userInformation">E-Mail: {{user.email}}</div>
+    </div>
+    <br>
+    <div class="post">
+      <div *ngFor="let post of posts">
+        <small>{{errorMessagePost}}</small>
+        <app-posting [img]="post.imageUrl" [message]="post.message" [postId]="post.id" [datePosting]="post.localDateTime"></app-posting>
+      </div>
+    </div>
+    <div class="form-group">
+      <button *ngIf="loggedInUserFollows" (click)="deleteFollowRelation()" class="btn btn-primary btn-50">Unfollow</button>
+      <button *ngIf="!loggedInUserFollows" (click)="createFollowRelation()" class="btn btn-primary btn-50">Follow</button>
+    </div>
+  </form>
+</div>

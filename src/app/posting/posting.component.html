@@ -2,13 +2,12 @@
   <br>
   <div class="card ">
     <div class="posting">
-
       <div class="posting-userimg">
         <img src="assets/img/user_icon.png" height="32px">
       </div>
       <div class="posting-content">
         <p class="username"  > {{username}} </p>
-       <p class="content"> {{message}} A </p>
+       <p class="content"> {{message}} </p>
         <p class="date">  {{datePosting}} </p>
       </div>
       <div class="posting-emoji">
@@ -17,11 +16,10 @@
       <div class="posting-empty">
       </div>
       <div class="posting-delete">
-        <a href="#!" class="btn btn-secondary follow-btn">  <img src="assets/img/trash.png" height="20px"  > </a>
+        <button class="btn btn-secondary follow-btn" (click)="deletePostMethod()" *ngIf="delete"><img src="assets/img/trash.png" height="20px"></button>
       </div>
     </div>
   </div>
-
 </div>
 
 

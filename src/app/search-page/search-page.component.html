@@ -1,0 +1,34 @@
+<app-header-lightblue></app-header-lightblue>
+<div class="container paddingPost">
+  <button class="btn btn-primary btn-50" (click)="goToMainPage()">Main Page</button>
+  <div>
+    <input class="form-control search" id="inputSearch"
+           placeholder="Search ..." name="search" required #message="ngModel" [(ngModel)]="searchValue">
+    <button (click)="searchForUserMatch(); searchForPostMatch()" class="btn btn-primary">Search</button>
+  </div>
+  <div class="search">
+    <small class="text-danger">{{noMatchingUserFound}}</small>
+    <div class="container" *ngFor="let user of userList">
+      <br>
+      <div class="card ">
+        <div class="userfollowbox">
+          <div class="userimg">
+            <img src="assets/img/user_icon.png" height="32px">
+          </div>
+          <div class="username">
+            {{user.username}}
+          </div>
+          <div class="follow">
+            <button class="btn btn-primary search-btn" (click)="goToUserPage(user.username)">Go To User!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search">
+    <small class="text-danger">{{noMatchingPostFound}}</small>
+    <div class="container paddingRegistration" *ngFor="let post of postList | keyvalue">
+      <app-posting [img]="post.value.imageUrl" [username]="post.key"  [message]="post.value.message" [datePosting]="post.value.localDateTime" [delete]="false"></app-posting>
+    </div>
+  </div>
+</div>

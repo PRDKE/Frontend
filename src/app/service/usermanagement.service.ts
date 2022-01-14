@@ -17,4 +17,16 @@ export class UsermanagementService {
   public registerUserRemote(user: User): Observable<any> {
     return this.http.post<any>("http://localhost:8080/api/new", user)
   }
+
+  public findUserByUsername(username: string): Observable<any> {
+    return this.http.get<any>("http://localhost:8080/api/" + username)
+  }
+
+  public findLoggedInUser(): Observable<any> {
+    return this.http.get<any>("http://localhost:8080/api/user")
+  }
+
+  public updateUserInformation(user: User): Observable<any> {
+    return this.http.put<any>("http://localhost:8080/api/update", user)
+  }
 }

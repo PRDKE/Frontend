@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PostsService} from "../service/posts.service";
 import {Post} from "../model/post";
 import {Router} from "@angular/router";
-import {NewPost} from "../model/new-post";
 
 @Component({
   selector: 'app-posts',
@@ -13,7 +12,6 @@ export class PostsComponent implements OnInit {
 
   static username: string;
   postUsername!: string;
-  newPost = new NewPost();
   post = new Post();
   postList: Array<Post> = [];
   emojis: Array<any> = ['Grinning Face', 'Sad Face', 'Bored Face'];
@@ -29,27 +27,42 @@ export class PostsComponent implements OnInit {
   }
 
   makeNewPost() {
-    this.newPost.username = PostsComponent.username;
-    this.newPost.post = this.post;
-    this.service.createNewPost(this.newPost).subscribe(
+    this.service.createNewPost(this.post).subscribe(
       data => {
-        console.log("response recieved");
+        console.log("response received");
+        this.getPosts();
       },
       error => {
-        console.log("exception occured");
+        console.log("exception occurred");
       }
     );
   }
 
   getPosts() {
-    this.newPost.username = PostsComponent.username;
-    this.service.getPosts(this.newPost.username).subscribe(
+    this.service.getPosts().subscribe(
       data => {
         this.postList = data;
-        console.log("response recieved");
+        console.log(data);
+        console.log("response received");
       },
       error => {
-        console.log("exception occured");
+        console.log("exception occurred");
+      }
+    );
+    for (let i = 0; i < this.postList.length; i++) {
+      console.log(this.postList[i].localDateTime)
+    }
+    console.log('test')
+  }
+
+  deletePostMethod(postId: any) {
+    this.service.deletePost(postId).subscribe(
+      data => {
+        // this.router.navigate(['/posts']);
+        this.ngOnInit();
+      },
+      error => {
+        console.log("exception occurred");
       }
     );
   }

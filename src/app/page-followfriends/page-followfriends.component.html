@@ -1,14 +1,29 @@
 <app-header-lightblue></app-header-lightblue>
+<button (click)="backToMainPage()" class="btn btn-primary btn-50">Main Page</button>
 
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
-<app-user-followbox> </app-user-followbox>
+<div class="follow">
+  <small>{{errorMessage}}</small>
+  <div *ngFor="let followRelation of followRelationData" >
+<!--    <app-user-followbox [username]="followRelation.username"></app-user-followbox>-->
+    <a (click)="goToUserPage(followRelation.username)">
+    </a>
+    <div class="container " >
+      <br>
+      <div class="card ">
+        <div class="userfollowbox">
+          <div class="userimg">
+            <img src="assets/img/user_icon.png" height="32px">
+          </div>
+          <div class="username">
+            <a (click)="goToUserPage(followRelation.username)">
+              {{followRelation.username}}
+            </a>
+          </div>
+          <div class="follow2">
+            <button class="btn btn-primary follow-btn" (click)="deleteFollowRelation(followRelation.username)">Unfollow</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

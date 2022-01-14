@@ -3,25 +3,23 @@
 <br>
 
 <div class="container paddingPost">
-  <button type="register" class="btn btn-primary" (click)="backToMainPage()">Main Page</button>
+  <button type="post" class="btn btn-primary" (click)="backToMainPage()">Main Page</button>
   <br>
   <form #postForm="ngForm">
     <div class="form-group">
       <label for="inputImageUrl">Image Url</label>
-      <input type="imageUrl" class="form-control" id="inputImageUrl"
-             placeholder="Enter image url" name="imageUrl" required #image="ngModel" [(ngModel)]="post.imageUrl">
-<!--      <select id="inputImageUrl" [(ngModel)]="post.imageUrl">-->
-<!--        <option *ngFor="let emoji of emojis">-->
-<!--          {{emoji}}-->
-<!--        </option>-->
-<!--      </select>-->
-      <small id="imageUrlHelper" class="form-text text-muted">Please input a image url.</small>
+      <select class="form-control" name="selectImageUrl" id="inputImageUrl" required #image="ngModel" [(ngModel)]="post.imageUrl">
+        <option *ngFor="let emoji of emojis">
+          {{emoji}}
+        </option>
+      </select>
+      <small id="imageUrlHelper" class="form-text text-muted">Please choose an emoji.</small>
     </div>
     <div class="form-group">
       <label for="inputPostMessage">Message</label>
       <input type="postMessage" class="form-control" id="inputPostMessage"
              placeholder="Enter message" name="message" required #message="ngModel" [(ngModel)]="post.message">
-      <small id="messageHelper" class="form-text text-muted">Please input a message.</small>
+      <small id="messageHelper" class="form-text text-muted">Please enter a message.</small>
     </div>
     <br>
     <div class="form-group">
@@ -31,8 +29,32 @@
   <br>
 
 
-  <div class="container paddingRegistration" *ngFor="let post of postList">
-    <app-posting [img]="post.imageUrl" [username]="postUsername"  [message]="post.message" [postId]="post.id"></app-posting>
+  <div class="post">
+    <div class="container paddingRegistration" *ngFor="let post of postList">
+      <div class="container " >
+        <br>
+        <div class="card ">
+          <div class="posting">
+            <div class="posting-userimg">
+              <img src="assets/img/user_icon.png" height="32px">
+            </div>
+            <div class="posting-content">
+              <p class="username"  > {{postUsername}} </p>
+              <p class="content"> {{post.message}} </p>
+              <p class="date">  {{post.localDateTime}} </p>
+            </div>
+            <div class="posting-emoji">
+              <img src="{{post.imageUrl}}" height="38px">
+            </div>
+            <div class="posting-empty">
+            </div>
+            <div class="posting-delete">
+              <button class="btn btn-secondary follow-btn" (click)="deletePostMethod(post.id)"><img src="assets/img/trash.png" height="20px"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>

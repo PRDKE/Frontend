@@ -1,18 +1,12 @@
-button.btn-50 {
-  width:48%;
-  height:50px;
-  margin:1%;
-}
-
-div.follow {
+div.search {
   width:92%;
-  height:800px;
+  height:370px;
   margin:3.33%;
   background-color: #e9e9e9;
   overflow: scroll;
   border: #cfcfcf 1px solid;
 }
-div.follow::-webkit-scrollbar {
+div.search::-webkit-scrollbar {
   scrollbar-base-color: #4bc7fb;
   scrollbar-arrow-color: crimson;
   display: none;
@@ -44,7 +38,7 @@ div.username {
   font-size: 16px;
 }
 
-div.follow2 {
+div.follow {
   width: 28%;
   margin: 1%;
   position: relative;
@@ -53,4 +47,15 @@ div.follow2 {
 
 a.follow-btn {
   width: 150px;
+}
+
+button.btn-50 {
+  width:49%;
+  height:50px;
+  margin:1%;
+}
+
+input.search {
+  width: 80%;
+  margin: 1%;
 }

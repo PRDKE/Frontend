@@ -1,0 +1,44 @@
+<app-main-page-header></app-main-page-header>
+<div class="container paddingPost">
+  <button type="Main Page" class="btn btn-primary btn-50" (click)="backToMainPage()">Main Page</button>
+  <br>
+  <small>{{errorMessage}}</small>
+  <form #updateForm="ngForm">
+    <div class="form-group">
+      <label for="inputUsername">Username</label>
+      <input type="username" class="form-control" id="inputUsername"
+             placeholder="Enter username" name="username" [(ngModel)]="user.username"
+             required #username="ngModel" [class.is-invalid]="username.invalid && username.touched">
+      <small id="inputUsernameHelper" class="form-text text-muted">Please enter a new username.</small>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="inputFirstName">First Name</label>
+      <input type="firstName" class="form-control" id="inputFirstName"
+             placeholder="Enter first name" name="firstName" [(ngModel)]="user.firstName"
+             required #firstName="ngModel" [class.is-invalid]="firstName.invalid && firstName.touched">
+      <small id="inputFirstNameHelper" class="form-text text-muted">Please enter your first name.</small>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="inputlastName">Last Name</label>
+      <input type="lastName" class="form-control" id="inputlastName"
+             placeholder="Enter last name" name="lastName" [(ngModel)]="user.lastName"
+             required #lastName="ngModel" [class.is-invalid]="lastName.invalid && lastName.touched">
+      <small id="inputlastNameHelper" class="form-text text-muted">Please enter your last name.</small>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="inputEmail">E-Mail</label>
+      <input type="E-Mail" class="form-control" id="inputEmail"
+             placeholder="Enter e-mail" name="email" [(ngModel)]="user.email"
+             required #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+      <small id="inputEmailHelper" class="form-text text-muted">Please enter your e-mail.</small>
+    </div>
+    <br>
+    <div class="form-group">
+      <button class="brn btn-secondary" (click)="changeUserInformation()" (submit)="changeUserInformation()"
+              [disabled]="username.invalid || firstName.invalid || lastName.invalid || email.invalid">Save Changes</button>
+    </div>
+  </form>
+</div>

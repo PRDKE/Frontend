@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { PostsComponent } from './posts/posts.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { LoginHeaderComponent } from './login-header/login-header.component';
@@ -16,6 +16,10 @@ import { PageFollowfriendsComponent } from './page-followfriends/page-followfrie
 import { HeaderLightblueComponent } from './header-lightblue/header-lightblue.component';
 import { UserFollowboxComponent } from './user-followbox/user-followbox.component';
 import { PostingComponent } from './posting/posting.component';
+import {AuthInterceptor} from "./service/auth.interceptor";
+import { SearchPageComponent } from './search-page/search-page.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { PostingComponent } from './posting/posting.component';
     PageFollowfriendsComponent,
     HeaderLightblueComponent,
     UserFollowboxComponent,
-    PostingComponent
+    PostingComponent,
+    SearchPageComponent,
+    UserPageComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,13 @@ import { PostingComponent } from './posting/posting.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
