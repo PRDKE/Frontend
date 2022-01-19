@@ -28,7 +28,9 @@
   <div class="search">
     <small class="text-danger">{{noMatchingPostFound}}</small>
     <div class="container paddingRegistration" *ngFor="let post of postList | keyvalue">
-      <app-posting [img]="post.value.imageUrl" [username]="post.key"  [message]="post.value.message" [datePosting]="post.value.localDateTime" [delete]="false"></app-posting>
+      <a (click)="goToUserPage(post.key.toString())">
+        <app-posting [img]="post.value.imageUrl" [username]="post.key"  [message]="post.value.message" [datePosting]="post.value.localDateTime" [delete]="false"></app-posting>
+      </a>
     </div>
   </div>
 </div>

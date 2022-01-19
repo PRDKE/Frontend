@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class PageFollowmeComponent implements OnInit {
 
   followRelationData = Array<FollowRelationData>();
+  errorMessage = '';
 
   constructor(private followService: FollowService, private router: Router) { }
 
@@ -24,7 +25,7 @@ export class PageFollowmeComponent implements OnInit {
         this.followRelationData = data;
       },
       error => {
-        console.log('no followRelationData found');
+        this.errorMessage = 'You do not have any followers!';
       }
     );
   }
