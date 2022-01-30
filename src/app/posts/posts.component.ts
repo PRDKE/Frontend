@@ -10,7 +10,6 @@ import {Router} from "@angular/router";
 })
 export class PostsComponent implements OnInit {
 
-  static username: string;
   postUsername!: string;
   post = new Post();
   postList: Array<Post> = [];
@@ -20,16 +19,12 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts();
-    if (PostsComponent.username === undefined) {
-      this.router.navigate(['login']);
-    }
-    this.postUsername = PostsComponent.username;
   }
 
+  // make a new post and call the 'getPosts()' method to reload the post-array
   makeNewPost() {
     this.service.createNewPost(this.post).subscribe(
       data => {
-        console.log("response received");
         this.getPosts();
       },
       error => {
@@ -38,12 +33,11 @@ export class PostsComponent implements OnInit {
     );
   }
 
+  // retrieve all post of the current logged-in user
   getPosts() {
     this.service.getPosts().subscribe(
       data => {
         this.postList = data;
-        console.log(data);
-        console.log("response received");
       },
       error => {
         console.log("exception occurred");
@@ -55,11 +49,12 @@ export class PostsComponent implements OnInit {
     console.log('test')
   }
 
+  // delete a post by postID
+  // reload the post array by calling the 'getPosts()' method
   deletePostMethod(postId: any) {
     this.service.deletePost(postId).subscribe(
       data => {
-        // this.router.navigate(['/posts']);
-        this.ngOnInit();
+        this.getPosts();
       },
       error => {
         console.log("exception occurred");
@@ -67,6 +62,7 @@ export class PostsComponent implements OnInit {
     );
   }
 
+  // navigate to main page
   backToMainPage() {
     this.router.navigate(['mainpage']);
   }

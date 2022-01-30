@@ -16,21 +16,22 @@ export class LoginComponent implements OnInit {
   message!: string;
   jwtToken!: JwtTokenModel;
 
-  test = "test";
-
   constructor(private service: UsermanagementService, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
+  // login a user as
+  // navigate to the main page if username and password are correct
+  // throw an error if username or password are wrong
   loginUser() {
     this.service.loginUserRemote(this.user).subscribe(
       data => {
         console.log("response recieved");
         this.jwtToken = data;
+        // set jwt as 'Authorization'
         localStorage.setItem('Authorization', this.jwtToken.jwtToken);
-        // console.log(this.jwtToken.jwtToken);
         this.router.navigate(['/mainpage'])
       },
       error => {
@@ -38,9 +39,9 @@ export class LoginComponent implements OnInit {
         this.message="Wrong username or password"
       }
     );
-    PostsComponent.username = this.user.username;
   }
 
+  // navigate to the 'registration' webpage
   goToRegistration() {
     this.router.navigate(['/registration'])
   }

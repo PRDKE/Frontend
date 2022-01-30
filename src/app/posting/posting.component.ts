@@ -24,6 +24,7 @@ export class PostingComponent implements OnInit {
     console.log(this.username);
   }
 
+  // delete a post by postID
   deletePostMethod() {
     this.service.deletePost(this.postId).subscribe(
       data => {

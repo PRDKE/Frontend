@@ -40,6 +40,7 @@ export class UserPageComponent implements OnInit {
     this.findUserPosts();
   }
 
+  // find the user information of a user
   findUserInformation() {
     this.usermanagementService.findUserByUsername(this.currentUser).subscribe(
       data => {
@@ -52,6 +53,7 @@ export class UserPageComponent implements OnInit {
     );
   }
 
+  // retrieve all post of a user
   findUserPosts() {
     this.userPostService.findPostsByUsername(this.currentUser).subscribe(
       data => {
@@ -64,6 +66,7 @@ export class UserPageComponent implements OnInit {
     );
   }
 
+  // check if current logged-in user follows the selected user
   findAllLoggedInUserFollows() {
     this.followRelationService.getAllUserFollows().subscribe(
       data => {
@@ -84,6 +87,7 @@ export class UserPageComponent implements OnInit {
     );
   }
 
+  // create a follow relation between logged-in user an selected user
   createFollowRelation() {
     this.followRelationService.createNewFollowRelation(UserPageComponent.username).subscribe(
       data => {
@@ -95,6 +99,7 @@ export class UserPageComponent implements OnInit {
     );
   }
 
+  // delete the follow relation between logged-in user an selected user
   deleteFollowRelation() {
     this.followRelationService.deleteFollowRelation(UserPageComponent.username).subscribe(
       data => {
@@ -106,6 +111,7 @@ export class UserPageComponent implements OnInit {
     );
   }
 
+  // navigate to the main page
   backToMainPage() {
     this.router.navigate(['mainpage']);
     UserPageComponent.username = '';

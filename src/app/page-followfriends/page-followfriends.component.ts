@@ -20,6 +20,8 @@ export class PageFollowfriendsComponent implements OnInit {
     this.getAllLoggedInUserFollows()
   }
 
+  // get all users that the current user follows
+  // set an error message if the user does not follow anyone
   getAllLoggedInUserFollows() {
     this.followService.getAllUserFollows().subscribe(
       data => {
@@ -32,11 +34,11 @@ export class PageFollowfriendsComponent implements OnInit {
     );
   }
 
+  // delete a follow relation to a user and reload the followRelationData Array by calling the ngOnInit method
   deleteFollowRelation(username: string) {
     this.followService.deleteFollowRelation(username).subscribe(
       data => {
         this.ngOnInit()
-        console.log('response');
       },
       error => {
         console.log('no followRelationData found');
@@ -44,10 +46,12 @@ export class PageFollowfriendsComponent implements OnInit {
     );
   }
 
+  // navigate to main page
   backToMainPage() {
     this.router.navigate(['mainpage']);
   }
 
+  // navigate to a user page
   goToUserPage(username: string) {
     UserPageComponent.username = username;
     this.router.navigate(['/userpage'])

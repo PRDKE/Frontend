@@ -20,9 +20,11 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // create a new user in the mariaDB database and the neo4J database
   registerUser() {
     this.registrationService.registerUserRemote(this.user).subscribe(
       data => {
+        // navigate to login
         this.router.navigate(['/login'])
       },
       error => {
@@ -40,6 +42,7 @@ export class RegistrationComponent implements OnInit {
     );
   }
 
+  // navigate to the login page
   goToLogin() {
     this.router.navigate(['/login'])
   }

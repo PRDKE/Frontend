@@ -23,11 +23,14 @@ export class MainPageComponent implements OnInit {
     this.getFirstPostOfFollows();
   }
 
+  // retrieve the last post of every user that the current user follows
   getFirstPostOfFollows() {
     let followRelationData = Array<FollowRelationData>();
+    // get all user that the current user follows
     this.followService.getAllUserFollows().subscribe(
       data => {
         followRelationData = data;
+        // iterate through the users and get the last post of every user
         for (let i = 0; i < followRelationData.length; i++) {
           this.postService.findFirstPostOfUser(followRelationData[i].username).subscribe(
             data => {
@@ -45,6 +48,7 @@ export class MainPageComponent implements OnInit {
     );
   }
 
+  // navigate to different webpages
   backToLogin() {
     this.router.navigate(['/login']);
   }

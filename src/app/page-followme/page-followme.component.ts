@@ -19,6 +19,7 @@ export class PageFollowmeComponent implements OnInit {
     this.getAllFollowUser()
   }
 
+  // retrieve all users that follow the current logged-in user
   getAllFollowUser() {
     this.followService.getAllFollowUser().subscribe(
       data => {
@@ -30,6 +31,7 @@ export class PageFollowmeComponent implements OnInit {
     );
   }
 
+  // navigate to main page
   backToMainPage() {
     this.router.navigate(['mainpage']);
   }

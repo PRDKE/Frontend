@@ -20,6 +20,7 @@ export class UserFollowboxComponent implements OnInit {
     this.currentHelper = UserFollowboxComponent.helper
   }
 
+  // delete a follow relation to a user
   deleteFollowRelation() {
     this.followService.deleteFollowRelation(this.username).subscribe(
       data => {
@@ -31,6 +32,7 @@ export class UserFollowboxComponent implements OnInit {
     );
   }
 
+  // create a follow Relation to a user
   createFollowRelation() {
     this.followService.createNewFollowRelation(this.username).subscribe(
       data => {
@@ -42,6 +44,7 @@ export class UserFollowboxComponent implements OnInit {
     );
   }
 
+  // navigate to the user page
   goToUserPage(username: string) {
     UserPageComponent.username = username;
     this.router.navigate(['/userpage'])

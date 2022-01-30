@@ -22,12 +22,12 @@ export class ProfileComponent implements OnInit {
     this.findUser();
   }
 
+  // find the user information of the current logged-in user
   findUser() {
     this.userService.findLoggedInUser().subscribe(
       data => {
         this.user = data;
         this.currentUsername = this.user.username;
-        console.log(data);
         this.errorMessage = '';
       },
       error => {
@@ -36,6 +36,9 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+  // update the user information with the new inputs
+  // go back to the login-page (logout) so that the user needs to enter his username and
+  // password again and a new jwt with the actual username information get set in the header
   changeUserInformation() {
     this.userService.updateUserInformation(this.user).subscribe(
       data => {
@@ -51,6 +54,7 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+  // update the username in the mongoDB 'post' database of a document
   updateUsernameInPostDatabase() {
     this.postService.updateUsername(this.user.username).subscribe(
       data => {
@@ -62,6 +66,7 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+  // update the username of the neo4J database
   updateUsernameInFollowDatabase() {
     this.followService.updateUsername(this.user.username).subscribe(
       data => {
@@ -73,10 +78,12 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+  // navigate to the login page
   goToLogin() {
     this.router.navigate(['/login']);
   }
 
+  // navigate to the main page
   backToMainPage() {
     this.router.navigate(['mainpage']);
   }
